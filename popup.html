@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    width: 320px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    padding: 14px;
+    background: #0f0f0f;
+    color: #f1f1f1;
+    margin: 0;
+  }
+  h1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    margin: 8px 0;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 7px 9px;
+    margin-top: 6px;
+    background: #1f1f1f;
+    border: 1px solid #303030;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+  input[type="text"]:focus { outline: 1px solid #3ea6ff; }
+  button {
+    background: #3ea6ff;
+    color: #0f0f0f;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 7px;
+  }
+  button.secondary {
+    background: #272727;
+    color: #fff;
+    width: 100%;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1f1f1f;
+    padding: 5px 9px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+  li button {
+    background: transparent;
+    color: #ff6b6b;
+    padding: 0 4px;
+    margin: 0;
+    font-size: 13px;
+  }
+  .section {
+    margin-top: 16px;
+    border-top: 1px solid #272727;
+    padding-top: 12px;
+  }
+  .section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ccc;
+  }
+  .hint {
+    font-size: 11px;
+    color: #999;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+  <h1>Focus Feed</h1>
+
+  <div class="toggle-row">
+    <span>Enabled</span>
+    <input type="checkbox" id="enabled">
+  </div>
+  <div class="toggle-row">
+    <span>Hide Shorts</span>
+    <input type="checkbox" id="hideShorts">
+  </div>
+  <div class="toggle-row">
+    <span>Allowlist mode (only show listed channels)</span>
+    <input type="checkbox" id="allowlistMode">
+  </div>
+
+  <div class="section">
+    <div class="section-title">Allowed channels</div>
+    <ul id="channelList"></ul>
+    <input type="text" id="channelInput" placeholder="Channel name, e.g. Veritasium">
+    <button id="addChannel">Add channel</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Blocked keywords (in video title)</div>
+    <ul id="keywordList"></ul>
+    <input type="text" id="keywordInput" placeholder="e.g. gameplay, trailer, clip">
+    <button id="addKeyword">Add keyword</button>
+  </div>
+
+  <div class="section">
+    <button class="secondary" id="openFeed">Open My Feed</button>
+    <div class="hint">Shows the latest uploads from your allowed channels, pulled directly from each channel instead of YouTube's recommendations.</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Feed for YouTube",
+  "version": "1.0.0",
+  "description": "Hide Shorts and off-topic recommendations on YouTube. Show only the channels you choose, no limit.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Focus Feed"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*", "*://m.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
